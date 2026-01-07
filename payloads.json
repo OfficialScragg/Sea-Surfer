@@ -1,0 +1,8 @@
+{
+  "test-payload": {
+    "name": "Test CSRF Payload",
+    "content": "<form action=\"https://example.com/api/delete\" method=\"POST\">\r\n  <input type=\"hidden\" name=\"id\" value=\"123\">\r\n</form>",
+    "auto_submit": true,
+    "hide_form": false
+  }
+}

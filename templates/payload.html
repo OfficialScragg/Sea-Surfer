@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Loading...</title>
+    {% if payload.hide_form %}
+    <style>
+        body { margin: 0; padding: 0; }
+        * { display: none !important; }
+    </style>
+    {% endif %}
+</head>
+<body>
+{{ payload.content | safe }}
+
+{% if payload.auto_submit %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var forms = document.querySelectorAll('form');
+        forms.forEach(function(form) {
+            form.submit();
+        });
+    });
+</script>
+{% endif %}
+</body>
+</html>
+

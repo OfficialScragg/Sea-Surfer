@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Sea Surfer{% endblock %}</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --bg: #0a0a0a;
+            --surface: #141414;
+            --border: #2a2a2a;
+            --text: #e5e5e5;
+            --text-dim: #666;
+            --accent: #fff;
+        }
+        
+        body {
+            font-family: 'JetBrains Mono', monospace;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        header {
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 24px;
+            margin-bottom: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+        
+        .logo span {
+            color: var(--text-dim);
+        }
+        
+        nav a {
+            color: var(--text-dim);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.2s;
+        }
+        
+        nav a:hover {
+            color: var(--accent);
+        }
+        
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: var(--accent);
+            color: var(--bg);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            border: none;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+        
+        .btn:hover {
+            opacity: 0.85;
+        }
+        
+        .btn-ghost {
+            background: transparent;
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+        
+        .btn-ghost:hover {
+            border-color: var(--text);
+        }
+        
+        .btn-danger {
+            background: transparent;
+            color: #888;
+            border: 1px solid var(--border);
+        }
+        
+        .btn-danger:hover {
+            color: #ff4444;
+            border-color: #ff4444;
+        }
+        
+        input, textarea {
+            width: 100%;
+            padding: 12px 16px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            color: var(--text);
+            font-family: inherit;
+            font-size: 0.875rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        
+        input:focus, textarea:focus {
+            border-color: var(--text-dim);
+        }
+        
+        textarea {
+            resize: vertical;
+            min-height: 200px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-dim);
+        }
+        
+        .form-group {
+            margin-bottom: 24px;
+        }
+        
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .checkbox-group input {
+            width: auto;
+        }
+        
+        .checkbox-group label {
+            margin: 0;
+            text-transform: none;
+            font-size: 0.875rem;
+            color: var(--text);
+        }
+        
+        .error {
+            background: #1a0a0a;
+            border: 1px solid #441111;
+            color: #ff6666;
+            padding: 12px 16px;
+            margin-bottom: 24px;
+            font-size: 0.875rem;
+        }
+        
+        .empty {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-dim);
+        }
+        
+        .empty p {
+            margin-bottom: 20px;
+        }
+    </style>
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">sea<span>-</span>surfer</div>
+            <nav>
+                <a href="{{ dev_path }}">payloads</a>
+                <a href="{{ dev_path }}/logout">logout</a>
+            </nav>
+        </header>
+        
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>
